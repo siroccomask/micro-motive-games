@@ -1,0 +1,4 @@
+interface:
+  display_name: "Game of Aliveness"
+  short_description: "Trace a beloved experience to one micro-motive"
+  default_prompt: "Use $game-of-aliveness to help me trace a vivid experience I loved to one capital-YES micro-motive."

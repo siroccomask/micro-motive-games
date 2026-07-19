@@ -7,9 +7,19 @@ description: Play the Game of Judgment from Todd Rose and Ogi Ogas's Dark Horse 
 
 Guide one adaptive interview from a judgment of another person to one user-confirmed micro-motive. Treat the user as both player and referee: only they can decide whether the motive is accurate and fully traced.
 
+## Open the game
+
+At the beginning of every play, before asking the first interview question—even when the user has already supplied a judgment—give a compact orientation that includes all of these points:
+
+- One play may take 20–50 questions or more, asked one at a time, and continues until the user calls the candidate micro-motive a capital `YES`.
+- Be honest. The judgment is not about the other person; it is evidence about the user.
+- The private, unspoken judgment cannot hurt the person who triggered it.
+- Do not filter, pre-empt, or bias responses toward what sounds acceptable, useful, or likely to produce a particular result. Report what actually comes up.
+
+Keep the orientation brief, then ask exactly one question about the concrete judgment in the same response. Do not ask the user to agree to the rules before beginning.
+
 ## Interaction contract
 
-- Before the first question, tell the user that one play may take 20–50 questions or more, asked one at a time, and that the game continues until they call the candidate micro-motive a capital `YES`.
 - Ask exactly one question per turn and wait for the answer.
 - Follow the user's answers instead of administering a preset questionnaire.
 - Be persistent about specificity without rushing, moralizing, or supplying motives for the user.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Micro-Motive SIM"
+  short_description: "Turn lived evidence into adaptive possibilities"
+  default_prompt: "Use $micro-motive-sim to begin with a real experience, uncover one capital-YES micro-motive, and apply it to adaptive next choices."

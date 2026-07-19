@@ -1,55 +1,107 @@
-# Game of Judgment
+# Micro-Motive Games
 
-A standalone Codex skill for uncovering one highly specific micro-motive from a vivid, reflexive judgment of another person.
+*Discover your individuality without being sorted into a type.*
 
-The skill guides an adaptive interview based on the Game of Judgment from Todd Rose and Ogi Ogas's *Dark Horse*. It follows the user's positive or negative reaction, traces the precise desire or aversion beneath it, confirms the wording, and saves one durable Markdown record.
+A free collection of Codex skills for uncovering the highly specific things you genuinely love and hate, then using that self-knowledge to create flexible, fulfilling possibilities.
 
-## What to expect
+The collection is inspired by Todd Rose and Ogi Ogas's *[Dark Horse](https://www.toddrose.com/darkhorse)*. It does not produce a personality score, assign an archetype, or prescribe one career. Each confirmed micro-motive becomes a portable piece of self-knowledge that can fit many different activities and lives.
 
-This is a patient, adaptive interview—not a quiz with a fixed number of steps. The AI asks exactly one question at a time and follows your answers. One play may take **20–50 questions or more**.
+## Skills
 
-Do not stop at a motive that seems merely plausible, close, or mostly right. Keep playing until the candidate feels like a capital **YES**: unmistakably accurate, specific, and complete. Anything less means the game continues.
+| Skill | Starts from | Purpose |
+| --- | --- | --- |
+| [`game-of-judgment`](game-of-judgment/) | A vivid positive or negative judgment of another person | Reverse-engineer the hidden desire or aversion behind the reaction using the Game of Judgment described in *Dark Horse*. |
+| [`game-of-aliveness`](game-of-aliveness/) | A real memory or activity you loved | Trace the precise mechanism that made part of the experience feel fulfilling, absorbing, free, delightful, or alive. |
+| [`micro-motive-sim`](micro-motive-sim/) | Confirmed motives and lived evidence | Compare or create next opportunities, evaluate tolerable downside, test individuality-fit strategies, and remain adaptive without choosing a permanent destination. |
 
-One play discovers one micro-motive. You can play again later to build a collection.
+`Game of Aliveness` is this project's name for a positive-memory companion to the authors' advice to examine what you already love and repeatedly ask why. It is not a term coined by Rose or Ogas.
 
-## Install in Codex
+## Shared contract
 
-### Copy and paste this command
+- One discovery play may take 20–50 questions or more, asked one at a time.
+- The game continues until you call the exact micro-motive a capital `YES`.
+- Anything less than `YES` means the investigation continues.
+- Real judgments, memories, and activities supply the evidence. Random hypothetical lifestyles do not.
+- Strange, selfish, contradictory, trivial, impractical, positive, and negative motives are all valid.
+- One play confirms one micro-motive. Repeated plays build a collection.
+- You are the referee. The AI may propose wording, but it cannot decide who you are.
 
-This installs or updates the skill in your user-scoped Codex skills directory:
+## Recommended: create a dedicated Codex project
+
+This keeps all three project-scoped skills beside one durable `Micro-motives/` collection.
+
+### Copy and paste
 
 ```bash
-mkdir -p "$HOME/.agents/skills/game-of-judgment/agents" && \
-curl -fsSL "https://raw.githubusercontent.com/siroccomask/game-of-judgment/main/game-of-judgment/SKILL.md" \
-  -o "$HOME/.agents/skills/game-of-judgment/SKILL.md" && \
-curl -fsSL "https://raw.githubusercontent.com/siroccomask/game-of-judgment/main/game-of-judgment/agents/openai.yaml" \
-  -o "$HOME/.agents/skills/game-of-judgment/agents/openai.yaml"
+PROJECT_DIR="$HOME/Micro-Motive-Games"
+RAW_REPO="https://raw.githubusercontent.com/siroccomask/micro-motive-games/refs/heads/main"
+
+mkdir -p "$PROJECT_DIR/Micro-motives"
+for SKILL in game-of-judgment game-of-aliveness micro-motive-sim; do
+  mkdir -p "$PROJECT_DIR/.agents/skills/$SKILL/agents"
+  curl -fsSL "$RAW_REPO/$SKILL/SKILL.md" \
+    -o "$PROJECT_DIR/.agents/skills/$SKILL/SKILL.md"
+  curl -fsSL "$RAW_REPO/$SKILL/agents/openai.yaml" \
+    -o "$PROJECT_DIR/.agents/skills/$SKILL/agents/openai.yaml"
+done
 ```
 
-Codex should detect the skill automatically. If it does not appear, restart Codex. Then start a new task with:
+Open `~/Micro-Motive-Games` as your working folder in Codex. If the skills do not appear immediately, restart Codex. Rerun the command to update them.
+
+## Start playing
+
+Begin with a positive experience:
 
 ```text
-Use $game-of-judgment to help me trace a judgment to one micro-motive. Continue until I call it a capital YES.
+Use $game-of-aliveness to trace a real experience I loved to one micro-motive. Ask one question at a time and continue until I call the wording a capital YES.
 ```
 
-### Ask Codex to install it
-
-You can also send this prompt to Codex:
+Begin with a judgment:
 
 ```text
-Use $skill-installer to install the game-of-judgment skill from https://github.com/siroccomask/game-of-judgment/tree/main/game-of-judgment
+Use $game-of-judgment to trace a vivid judgment to one micro-motive. Ask one question at a time and continue until I call the wording a capital YES.
 ```
 
-## Play in another AI chat without installing
-
-1. Open [`game-of-judgment/SKILL.md`](https://github.com/siroccomask/game-of-judgment/blob/main/game-of-judgment/SKILL.md).
-2. Copy the entire file and paste it into a new conversation with your AI.
-3. Add this prompt after the pasted instructions:
+After collecting motives, explore possibilities:
 
 ```text
-Follow the facilitator instructions above exactly and play one Game of Judgment with me. Ask one question per message and wait for my answer. Continue for as many questions as needed—20 to 50 or more is normal—and do not stop until I say the micro-motive is a capital YES.
+Use $micro-motive-sim to load my confirmed micro-motives and help me create a diverse portfolio of next opportunities. Keep motive fit separate from ability, risk, money, and other constraints.
 ```
 
-## Repository contents
+## Alternative: install user-wide
 
-- `game-of-judgment/` — the Codex skill folder
+To make every skill available in every Codex project:
+
+```bash
+SKILLS_DIR="$HOME/.agents/skills"
+RAW_REPO="https://raw.githubusercontent.com/siroccomask/micro-motive-games/refs/heads/main"
+
+for SKILL in game-of-judgment game-of-aliveness micro-motive-sim; do
+  mkdir -p "$SKILLS_DIR/$SKILL/agents"
+  curl -fsSL "$RAW_REPO/$SKILL/SKILL.md" \
+    -o "$SKILLS_DIR/$SKILL/SKILL.md"
+  curl -fsSL "$RAW_REPO/$SKILL/agents/openai.yaml" \
+    -o "$SKILLS_DIR/$SKILL/agents/openai.yaml"
+done
+```
+
+Records are saved relative to the current working folder. Reopen the same folder for each play when you want one continuous collection.
+
+## Ask Codex to install a skill
+
+You can also send Codex a prompt such as:
+
+```text
+Install the game-of-aliveness skill from https://github.com/siroccomask/micro-motive-games/tree/main/game-of-aliveness and tell me when it is ready to play.
+```
+
+## What gets saved
+
+After a capital `YES`, the discovery skills create one Markdown record under `Micro-motives/`. The record preserves:
+
+- the exact confirmed micro-motive;
+- the real experience or judgment that revealed it;
+- the important feelings and boundary conditions;
+- the reasoning that separates the motive from nearby explanations.
+
+The result is a growing, inspectable record of individuality—not a standardized profile generated in one sitting.
