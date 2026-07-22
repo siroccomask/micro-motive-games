@@ -18,12 +18,12 @@ The collection is inspired by Todd Rose and Ogi Ogas's *[Dark Horse](https://www
 
 ## Shared contract
 
-- One discovery play may take 20–50 questions or more, asked one at a time.
-- The game continues until you call the exact micro-motive a capital `YES`.
-- Anything less than `YES` means the investigation continues.
+- Discovery proceeds one question at a time and stops when the evidence is sufficient; there is no target question count.
+- A micro-motive should be atomic and can be a short `I enjoy...` or `I dislike...` statement. The explanation belongs in its record.
+- Explicit confirmation controls what gets saved. `Game of Aliveness` uses a capital `YES`; `Game of Judgment` also accepts direct instructions such as `save this` or `log these two`.
 - Real judgments, memories, and activities supply the evidence. Random hypothetical lifestyles do not.
 - Strange, selfish, contradictory, trivial, impractical, positive, and negative motives are all valid.
-- One play confirms one micro-motive. Repeated plays build a collection.
+- One record contains one micro-motive. If one experience reveals independent motives, they are saved separately rather than synthesized.
 - You are the referee. The AI may propose wording, but it cannot decide who you are.
 
 ## Recommended: create a dedicated Codex project
@@ -59,7 +59,7 @@ Use $game-of-aliveness to trace a real experience I loved to one micro-motive. A
 Begin with a judgment:
 
 ```text
-Use $game-of-judgment to trace a vivid judgment to one micro-motive. Ask one question at a time and continue until I call the wording a capital YES.
+Use $game-of-judgment to trace a vivid judgment into concise, separate micro-motives. Ask one question at a time and save the ones I explicitly confirm.
 ```
 
 After collecting motives, explore possibilities:

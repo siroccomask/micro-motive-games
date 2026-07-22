@@ -1,83 +1,65 @@
 ---
 name: game-of-judgment
-description: Play the Game of Judgment from Todd Rose and Ogi Ogas's Dark Horse to uncover one highly specific micro-motive from a vivid, reflexive judgment of another person. Use when the user wants to examine a positive or negative judgment, trace the feeling to the hidden desire beneath it, identify a micro-motive, or add one confirmed micro-motive record to a growing collection.
+description: Trace a vivid positive or negative judgment of another person into one or more atomic, highly personal micro-motives. Use when the user wants to examine admiration, envy, irritation, delight, condemnation, or another reflexive reaction; identify the precise desire or aversion beneath it; split co-occurring motives; or save confirmed micro-motive records.
 ---
 
 # Game of Judgment
 
-Guide one adaptive interview from a judgment of another person to one user-confirmed micro-motive. Treat the user as both player and referee: only they can decide whether the motive is accurate and fully traced.
+Use a reflexive judgment as evidence about the user, not as a character analysis of the person who triggered it.
 
-## Open the game
+## Define the output narrowly
 
-At the beginning of every play, before asking the first interview question—even when the user has already supplied a judgment—give a compact orientation that includes all of these points:
+A micro-motive is one highly specific thing the user enjoys, desires, dislikes, or avoids. It can be a short sentence:
 
-- One play may take 20–50 questions or more, asked one at a time, and continues until the user calls the candidate micro-motive a capital `YES`.
-- Be honest. The judgment is not about the other person; it is evidence about the user.
-- The private, unspoken judgment cannot hurt the person who triggered it.
-- Do not filter, pre-empt, or bias responses toward what sounds acceptable, useful, or likely to produce a particular result. Report what actually comes up.
+- `I enjoy harmless rule-breaking where absurd, improper methods work well.`
+- `I like arranging physical objects in exact alignment.`
 
-Keep the orientation brief, then ask exactly one question about the concrete judgment in the same response. Do not ask the user to agree to the rules before beginning.
+Treat **micro** as atomic, not elaborate. Specificity does not require a long causal theory. Keep evidence, explanation, and boundary conditions in the saved record rather than packing them into the motive.
 
-## Interaction contract
+Prefer direct forms such as `I enjoy...`, `I want...`, or `I dislike...`. Do not inflate the result into a career, identity, virtue, personality label, or standardized motive category.
 
-- Ask exactly one question per turn and wait for the answer.
-- Follow the user's answers instead of administering a preset questionnaire.
-- Be persistent about specificity without rushing, moralizing, or supplying motives for the user.
-- Do not analyze the judged person's character, merits, or deficiencies. Their behavior is only the stimulus for investigating the user's desires.
-- Accept positive, negative, admiring, envious, celebratory, irritated, or condemnatory reactions. Look for vividness, not social acceptability.
-- Let the user state their reaction and initial reasons before offering candidate wording. Avoid multiple-choice interpretations that could anchor them.
-- Do not stop at a broad category such as creativity, nature, status, helping, competition, or working with one's hands. Trace the exact rewarding or aversive feature. It may be sensory, mechanical, cognitive, social, procedural, or extremely particular.
-- Do not force contradictory reactions into consistency. Follow one live thread to one micro-motive and leave other threads for later plays.
-- Treat any response short of a capital `YES`—including “close,” “maybe,” “mostly,” or a request to change a qualifier—as a signal to continue the game.
-- Do not create the record until the user explicitly calls the micro-motive a capital `YES`: unmistakably accurate, specific, and complete.
+## Open briefly
 
-## Play the three stages
+Tell the user:
 
-Move through these stages in order, while returning to an earlier stage whenever the user's answer reveals missing detail. Do not re-ask information already supplied.
+- their private judgment is safe evidence about what moves them;
+- honest, strange, selfish, trivial, contradictory, or impractical reactions are welcome;
+- you will ask one question at a time and they remain the referee.
 
-### 1. Notice the judgment
+Then ask exactly one question about the concrete judgment. Do not announce a question quota or imply that discovery must be lengthy.
 
-Ask for a concrete moment when the user reflexively judged another person. Establish:
+## Interview economically
 
-- who or what kind of person they observed;
-- what the person was doing or representing;
-- the user's immediate, unedited judgment.
+Ask exactly one question per turn. Follow the live evidence instead of administering a questionnaire.
 
-Keep the event concrete. If the user begins with a general opinion, ask for a specific person or moment that triggered it.
+Establish only what is still missing:
 
-### 2. Identify the feeling
+1. The concrete person, behavior, and immediate unedited judgment.
+2. The user's feeling, distinct from their evaluation of the other person.
+3. The exact feature that produced the feeling.
+4. A boundary or second lived example only when needed to distinguish nearby motives.
 
-Ask what the user felt at the instant of judgment. Help them distinguish an evaluation of the other person from their own emotional reaction. Explore mixed feelings only when they appear.
+Use one counterfactual at a time. Do not continue probing merely to make the result sound deeper.
 
-Useful single-question probes include:
+When the user directly states a plausible micro-motive, stop excavating and reflect it back promptly. Preserve their wording; make only a light grammatical edit unless they ask for help refining it. A concise statement is not incomplete merely because the supporting story is complex.
 
-- “What feeling hit first?”
-- “Which part of that reaction felt strongest?”
-- “Was the vivid part attraction toward their life, aversion to it, or both?”
+## Split instead of synthesizing
 
-### 3. Ask why
+One experience can reveal multiple micro-motives. Never combine independently rewarding features just because they appeared together.
 
-Ask why that particular feature produced the feeling. Keep sifting through the answer until the user recognizes the precise desire or aversion beneath it.
+Audit candidate wording containing `and`, `so that`, or `because`. If either side can be rewarding without the other, create separate candidates and separate records. For example, harmless rule-breaking and making an audience share an accomplishment are two motives, not one more-complete motive.
 
-Choose one probe at a time based on the preceding answer:
+When several motives are already clear, present them separately. When another branch still needs investigation, preserve it in a separate task when thread tools are available, then continue only one branch in the current task. Do not make the user repeat the branch context.
 
-- What would the user specifically want if they had that person's life?
-- What would they specifically hate?
-- Is the emotionally charged feature the activity, the process, the outcome, the recognition, the control, the setting, the sensory experience, or something more exact?
-- If one suspected feature disappeared while everything else stayed the same, would the reaction remain?
-- Where has the same precise feature produced a similar reaction elsewhere in the user's life?
+## Confirm without ceremony
 
-Use counterfactuals and comparisons to sharpen the wording, not to override the user's introspection. When an answer remains broad, ask what exact moment or property inside it matters.
+Ask whether the exact wording should be saved. A capital `YES` is sufficient but not required. Clear statements such as `that's it`, `save this`, `log these two`, or the user's own definitive wording count as confirmation.
 
-## Form and confirm the micro-motive
+Do not treat rejection of a combined or rewritten candidate as rejection of separate motives the user explicitly stated. If wording is rejected, ask one focused question about what is inaccurate or missing.
 
-After the reasoning converges, offer one concise candidate statement in the user's language. Phrase it as an exact desire, preference, or aversion rather than a career, identity, value category, or abstract virtue.
+## Create records
 
-Ask, “Is this a capital YES—unmistakably accurate, specific, and complete?” If the user hesitates, asks for a change, supplies a qualifier, or gives anything less than a clear capital `YES`, continue with one focused question at a time. Do not impose a question limit; 20–50 questions or more may be necessary. The game ends only when the user explicitly calls the final wording a capital `YES`.
-
-## Create the record
-
-After capital-`YES` confirmation, create one Markdown file for this micro-motive. Use a filename such as `YYYY-MM-DD-<short-motive-slug>.md`; avoid overwriting an existing record. Save it in a durable, user-facing `Micro-motives` collection or folder when available. Each play creates a separate file rather than appending several motives to one file.
+Create one non-overwriting Markdown file per confirmed micro-motive, named `YYYY-MM-DD-<short-motive-slug>.md`, under a durable `Micro-motives/` collection when available. If the user explicitly confirms several motives, create several records.
 
 Use this structure:
 
@@ -88,19 +70,19 @@ Date: <YYYY-MM-DD>
 
 ## Micro-motive
 
-<The exact user-confirmed statement.>
+<The user's exact or lightly edited confirmed statement.>
 
 ## Judgment that revealed it
 
-<The concrete person, situation, and reflexive judgment.>
+<The concrete person, behavior, and reflexive judgment.>
 
 ## Feelings
 
-<The vivid positive, negative, or mixed feelings the user identified.>
+<The positive, negative, or mixed feelings the user identified.>
 
 ## Why it matters
 
-<A concise account of the user's reasoning from the emotional reaction to the motive, preserving important distinctions and qualifiers.>
+<A concise account of the evidence and relevant boundaries.>
 ```
 
-Do not add diagnoses, personality labels, career prescriptions, standardized motive categories, or claims that the record proves a permanent trait. Present the completed file to the user and stop; a future invocation can play again to build the collection.
+Do not add diagnoses, prescriptions, or claims that a record proves a permanent trait. Present the saved files and stop.

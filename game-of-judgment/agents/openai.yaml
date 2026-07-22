@@ -1,7 +1,7 @@
 interface:
   display_name: "Game of Judgment"
-  short_description: "Trace one judgment to one micro-motive"
-  default_prompt: "Use $game-of-judgment to help me trace a judgment to one micro-motive; continue until I call it a capital YES."
+  short_description: "Trace judgments into atomic micro-motives"
+  default_prompt: "Use $game-of-judgment to trace my reaction into concise, separate micro-motives and save the ones I confirm."
 
 policy:
   allow_implicit_invocation: true
