@@ -1013,16 +1013,12 @@ button {
 .mm-discovery-start {
   max-width: 1180px;
   margin: 0 auto;
-  overflow: hidden;
-  border: 1px solid #ddd7cc;
-  border-radius: 16px;
-  background: rgba(255, 253, 248, 0.82);
-  box-shadow: 0 16px 50px rgba(61, 46, 32, 0.07);
 }
 
 .mm-start-methods {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
 
 .mm-start-method {
@@ -1032,30 +1028,40 @@ button {
   align-items: start;
   gap: 13px;
   padding: 34px 29px;
-  border: 0;
-  border-right: 1px solid #e3dbd0;
-  background: transparent;
+  border: 1px solid #ddd6cb;
+  border-radius: 16px;
+  background: rgba(255, 253, 248, 0.9);
+  box-shadow: 0 10px 28px rgba(61, 46, 32, 0.055);
   color: var(--ink);
+  cursor: pointer;
   text-align: left;
   transition:
-    background 160ms ease,
-    transform 160ms ease;
-}
-
-.mm-start-method:last-child {
-  border-right: 0;
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
 .mm-start-method:hover {
   background: #fff9f1;
+  border-color: #d5a28f;
+  box-shadow: 0 18px 42px rgba(61, 46, 32, 0.12);
+  transform: translateY(-5px);
 }
 
 .mm-start-method.is-aliveness:hover {
   background: #f3f5ed;
+  border-color: #aeb99a;
 }
 
 .mm-start-method.is-judgment:hover {
   background: #fff3ec;
+  border-color: #df9d86;
+}
+
+.mm-start-method:focus-visible {
+  outline: 3px solid rgba(237, 106, 75, 0.24);
+  outline-offset: 3px;
 }
 
 .mm-start-method-index {
@@ -1068,6 +1074,7 @@ button {
 .mm-start-method-copy {
   display: flex;
   min-width: 0;
+  height: 100%;
   flex-direction: column;
 }
 
@@ -1096,6 +1103,37 @@ button {
   line-height: 1.65;
 }
 
+.mm-start-method-copy > .mm-start-method-cue {
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 28px;
+  color: #76594e;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.045em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.mm-start-method-cue > span {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border: 1px solid #d8c8bc;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--coral-dark);
+  font-size: 12px;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
 .mm-start-method-arrow {
   display: grid;
   width: 22px;
@@ -1105,6 +1143,24 @@ button {
   border-radius: 50%;
   color: var(--coral-dark);
   font-size: 11px;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.mm-start-method:hover .mm-start-method-arrow {
+  border-color: var(--coral);
+  background: var(--coral);
+  color: white;
+  transform: translateX(3px);
+}
+
+.mm-start-method:hover .mm-start-method-cue > span {
+  background: var(--coral);
+  color: white;
+  transform: rotate(8deg) scale(1.08);
 }
 
 .mm-start-contract {
@@ -1112,9 +1168,11 @@ button {
   align-items: center;
   justify-content: center;
   gap: 26px;
-  padding: 16px 24px;
-  border-top: 1px solid #e3dbd0;
-  background: rgba(246, 241, 233, 0.7);
+  margin-top: 18px;
+  padding: 14px 24px;
+  border: 1px solid #e3dbd0;
+  border-radius: 12px;
+  background: rgba(246, 241, 233, 0.74);
   color: #727b76;
   font-size: 8px;
   font-weight: 800;
@@ -1943,12 +2001,6 @@ button {
 
   .mm-start-method {
     min-height: 0;
-    border-right: 0;
-    border-bottom: 1px solid #e3dbd0;
-  }
-
-  .mm-start-method:last-child {
-    border-bottom: 0;
   }
 
   .mm-chat-shell {
