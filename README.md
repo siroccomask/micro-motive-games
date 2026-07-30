@@ -14,10 +14,33 @@ Use it to:
 
 The model makes predictions. You decide what is true.
 
-## Run it locally
+## Start with Codex
 
-You need [Node.js 20+](https://nodejs.org/) and a ChatGPT account with access to
-Codex.
+You need the [Codex app](https://openai.com/codex/) and a ChatGPT account with
+access to Codex. Open a new Codex task and paste:
+
+```text
+Set up Micro-Motive Games for me from
+https://github.com/siroccomask/micro-motive-games.
+
+Clone the repository into a new local folder, read its setup instructions,
+install what it needs, check that my Codex login is ready, start the app, and
+open it for me. If you need me to complete a sign-in step, tell me exactly what
+to do.
+```
+
+Codex will prepare the project and open the local workspace. Once it is running,
+choose **Discover** and begin with whichever kind of real experience feels most
+vivid.
+
+No OpenAI API key is required. The app sends discovery prompts through your
+ChatGPT-authenticated Codex session and saves confirmed motives on your
+computer in `data/micro-motives.json`.
+
+<details>
+<summary>Prefer to set it up in a terminal?</summary>
+
+You need [Node.js 20+](https://nodejs.org/).
 
 ```bash
 git clone https://github.com/siroccomask/micro-motive-games.git
@@ -27,11 +50,9 @@ npm run codex:login
 npm run dev
 ```
 
-Open [http://127.0.0.1:3000](http://127.0.0.1:3000).
+Then open [http://127.0.0.1:3000](http://127.0.0.1:3000).
 
-No OpenAI API key is required. The app sends discovery prompts through your
-ChatGPT-authenticated Codex session and saves confirmed motives on your
-computer in `data/micro-motives.json`.
+</details>
 
 ## Discovery methods
 
