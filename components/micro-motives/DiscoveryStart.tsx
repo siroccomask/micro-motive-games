@@ -7,22 +7,10 @@ type DiscoveryStartProps = {
   onChoose: (entry: DiscoveryEntry) => void;
 };
 
-const entryCues: Record<
-  DiscoveryEntry,
-  { symbol: string; label: string }
-> = {
-  ALIVENESS: {
-    symbol: "✦",
-    label: "Follow what lights you up",
-  },
-  JUDGMENT: {
-    symbol: "↯",
-    label: "Follow the reaction",
-  },
-  ADAPTIVE: {
-    symbol: "⌁",
-    label: "Start anywhere",
-  },
+const entryCues: Record<DiscoveryEntry, string> = {
+  ALIVENESS: "Follow what lights you up",
+  JUDGMENT: "Follow the reaction",
+  ADAPTIVE: "Start anywhere",
 };
 
 export default function DiscoveryStart({ onChoose }: DiscoveryStartProps) {
@@ -50,10 +38,7 @@ export default function DiscoveryStart({ onChoose }: DiscoveryStartProps) {
                 <small>{option.eyebrow}</small>
                 <strong>{option.title}</strong>
                 <span>{option.description}</span>
-                <span className="mm-start-method-cue">
-                  <span aria-hidden="true">{cue.symbol}</span>
-                  {cue.label}
-                </span>
+                <span className="mm-start-method-cue">{cue}</span>
               </span>
               <span className="mm-start-method-arrow" aria-hidden="true">
                 →

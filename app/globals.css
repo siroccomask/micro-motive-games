@@ -1104,10 +1104,7 @@ button {
 }
 
 .mm-start-method-copy > .mm-start-method-cue {
-  display: flex;
-  align-items: center;
   align-self: flex-start;
-  gap: 8px;
   margin-top: auto;
   padding-top: 28px;
   color: #76594e;
@@ -1116,22 +1113,6 @@ button {
   letter-spacing: 0.045em;
   line-height: 1;
   text-transform: uppercase;
-}
-
-.mm-start-method-cue > span {
-  display: grid;
-  width: 24px;
-  height: 24px;
-  place-items: center;
-  border: 1px solid #d8c8bc;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.6);
-  color: var(--coral-dark);
-  font-size: 12px;
-  transition:
-    background 180ms ease,
-    color 180ms ease,
-    transform 180ms ease;
 }
 
 .mm-start-method-arrow {
@@ -1155,12 +1136,6 @@ button {
   background: var(--coral);
   color: white;
   transform: translateX(3px);
-}
-
-.mm-start-method:hover .mm-start-method-cue > span {
-  background: var(--coral);
-  color: white;
-  transform: rotate(8deg) scale(1.08);
 }
 
 .mm-start-contract {
