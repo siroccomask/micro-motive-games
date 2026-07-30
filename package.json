@@ -1,0 +1,41 @@
+{
+  "name": "micro-motive-games",
+  "version": "0.1.0",
+  "description": "A local-first workspace for discovering and exporting Dark Horse micro-motives.",
+  "private": true,
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "baml:generate": "baml-cli generate",
+    "baml:test": "baml-cli test --parallel 1",
+    "build": "next build --webpack",
+    "codex:login": "codex login",
+    "dev": "next dev --webpack --hostname 127.0.0.1 --port 3000",
+    "doctor": "node scripts/doctor.mjs",
+    "predev": "npm run doctor",
+    "prestart": "npm run doctor",
+    "start": "next start --hostname 127.0.0.1 --port 3000",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@boundaryml/baml": "^0.223.0",
+    "@boundaryml/baml-nextjs-plugin": "^0.1.0",
+    "next": "^16.2.12",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-hot-toast": "^2.4.1",
+    "zod": "^4.0.15"
+  },
+  "devDependencies": {
+    "@openai/codex": "^0.146.0",
+    "@types/node": "^24.2.0",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "typescript": "^5.9.2"
+  },
+  "overrides": {
+    "postcss": "8.5.25",
+    "sharp": "0.35.3"
+  }
+}
