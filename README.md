@@ -33,17 +33,23 @@ No OpenAI API key is required. The app sends discovery prompts through your
 ChatGPT-authenticated Codex session and saves confirmed motives on your
 computer in `data/micro-motives.json`.
 
-## Included games
+## Discovery methods
 
-- [`game-of-aliveness`](game-of-aliveness/) starts with something you loved.
-- [`game-of-judgment`](game-of-judgment/) starts with a strong reaction to
-  someone else.
-- [`micro-motive-sim`](micro-motive-sim/) uses confirmed motives to explore
-  choices and strategies without prescribing a destination.
+The **Discover** page lets you deliberately begin with:
 
-You can use these Codex skills directly. **Motive** is the local app included in
-this repository for discovering, organizing, refining, and exporting the
-results.
+- [Game of Aliveness](game-of-aliveness/) — follow a real moment you loved
+  toward its exact rewarding feature;
+- [Game of Judgment](game-of-judgment/) — trace a strong reaction to someone
+  through the behavior, feeling, and precise trigger; or
+- an adaptive start that chooses between those methods from your first story.
+
+Each method runs as its own typed BAML process through your Codex subscription.
+The included [micro-motive simulation](micro-motive-sim/) remains a standalone
+Codex skill for exploring possibilities after you have confirmed motives.
+
+Game of Aliveness is this project's name for a positive-memory companion to
+the book's advice to examine what you love. Game of Judgment comes directly
+from *Dark Horse*.
 
 ## Your data
 

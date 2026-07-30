@@ -23,7 +23,7 @@ import { toBamlError } from "@boundaryml/baml"
 import type { Checked, Check } from "./types"
 import type { partial_types } from "./partial_types"
 import type * as types from "./types"
-import type {BreakdownCandidateOutput, BreakdownMicroMotiveInput, BreakdownMicroMotiveOutput, DiscoveryActionKind, DiscoveryMessage, DiscoverySuggestedAction, DiscoveryTurn, DiscoveryTurnKind, FinalizeMicroMotiveInput, MicroMotiveEvidence, MicroMotiveOutput} from "./types"
+import type {BreakdownCandidateOutput, BreakdownMicroMotiveInput, BreakdownMicroMotiveOutput, DiscoveryActionKind, DiscoveryContinuationInput, DiscoveryMessage, DiscoveryMethod, DiscoveryStage, DiscoverySuggestedAction, DiscoveryTurn, DiscoveryTurnKind, FinalizeMicroMotiveInput, MicroMotiveEvidence, MicroMotiveOutput} from "./types"
 import type TypeBuilder from "./type_builder"
 
 export class LlmResponseParser {
@@ -53,7 +53,7 @@ export class LlmResponseParser {
     }
   }
 
-  ContinueDiscovery(
+  ContinueAlivenessDiscovery(
       llmResponse: string,
       __baml_options__?: { tb?: TypeBuilder, clientRegistry?: ClientRegistry, env?: Record<string, string | undefined> }
   ): types.DiscoveryTurn {
@@ -63,7 +63,30 @@ export class LlmResponseParser {
         Object.entries(__rawEnv__).filter(([_, value]) => value !== undefined) as [string, string][]
       );
       return this.runtime.parseLlmResponse(
-        "ContinueDiscovery",
+        "ContinueAlivenessDiscovery",
+        llmResponse,
+        false,
+        this.ctxManager.cloneContext(),
+        __baml_options__?.tb?.__tb(),
+        __baml_options__?.clientRegistry,
+        __env__,
+      ) as types.DiscoveryTurn
+    } catch (error) {
+      throw toBamlError(error);
+    }
+  }
+
+  ContinueJudgmentDiscovery(
+      llmResponse: string,
+      __baml_options__?: { tb?: TypeBuilder, clientRegistry?: ClientRegistry, env?: Record<string, string | undefined> }
+  ): types.DiscoveryTurn {
+    try {
+      const __rawEnv__ = __baml_options__?.env ? { ...process.env, ...__baml_options__.env } : { ...process.env };
+      const __env__: Record<string, string> = Object.fromEntries(
+        Object.entries(__rawEnv__).filter(([_, value]) => value !== undefined) as [string, string][]
+      );
+      return this.runtime.parseLlmResponse(
+        "ContinueJudgmentDiscovery",
         llmResponse,
         false,
         this.ctxManager.cloneContext(),
@@ -99,6 +122,29 @@ export class LlmResponseParser {
     }
   }
 
+  RouteDiscovery(
+      llmResponse: string,
+      __baml_options__?: { tb?: TypeBuilder, clientRegistry?: ClientRegistry, env?: Record<string, string | undefined> }
+  ): types.DiscoveryTurn {
+    try {
+      const __rawEnv__ = __baml_options__?.env ? { ...process.env, ...__baml_options__.env } : { ...process.env };
+      const __env__: Record<string, string> = Object.fromEntries(
+        Object.entries(__rawEnv__).filter(([_, value]) => value !== undefined) as [string, string][]
+      );
+      return this.runtime.parseLlmResponse(
+        "RouteDiscovery",
+        llmResponse,
+        false,
+        this.ctxManager.cloneContext(),
+        __baml_options__?.tb?.__tb(),
+        __baml_options__?.clientRegistry,
+        __env__,
+      ) as types.DiscoveryTurn
+    } catch (error) {
+      throw toBamlError(error);
+    }
+  }
+
 }
 
 export class LlmStreamParser {
@@ -128,7 +174,7 @@ export class LlmStreamParser {
     }
   }
 
-  ContinueDiscovery(
+  ContinueAlivenessDiscovery(
       llmResponse: string,
       __baml_options__?: { tb?: TypeBuilder, clientRegistry?: ClientRegistry, env?: Record<string, string | undefined> }
   ): partial_types.DiscoveryTurn {
@@ -138,7 +184,30 @@ export class LlmStreamParser {
         Object.entries(__rawEnv__).filter(([_, value]) => value !== undefined) as [string, string][]
       );
       return this.runtime.parseLlmResponse(
-        "ContinueDiscovery",
+        "ContinueAlivenessDiscovery",
+        llmResponse,
+        true,
+        this.ctxManager.cloneContext(),
+        __baml_options__?.tb?.__tb(),
+        __baml_options__?.clientRegistry,
+        __env__,
+      ) as partial_types.DiscoveryTurn
+    } catch (error) {
+      throw toBamlError(error);
+    }
+  }
+
+  ContinueJudgmentDiscovery(
+      llmResponse: string,
+      __baml_options__?: { tb?: TypeBuilder, clientRegistry?: ClientRegistry, env?: Record<string, string | undefined> }
+  ): partial_types.DiscoveryTurn {
+    try {
+      const __rawEnv__ = __baml_options__?.env ? { ...process.env, ...__baml_options__.env } : { ...process.env };
+      const __env__: Record<string, string> = Object.fromEntries(
+        Object.entries(__rawEnv__).filter(([_, value]) => value !== undefined) as [string, string][]
+      );
+      return this.runtime.parseLlmResponse(
+        "ContinueJudgmentDiscovery",
         llmResponse,
         true,
         this.ctxManager.cloneContext(),
@@ -169,6 +238,29 @@ export class LlmStreamParser {
         __baml_options__?.clientRegistry,
         __env__,
       ) as partial_types.MicroMotiveOutput
+    } catch (error) {
+      throw toBamlError(error);
+    }
+  }
+
+  RouteDiscovery(
+      llmResponse: string,
+      __baml_options__?: { tb?: TypeBuilder, clientRegistry?: ClientRegistry, env?: Record<string, string | undefined> }
+  ): partial_types.DiscoveryTurn {
+    try {
+      const __rawEnv__ = __baml_options__?.env ? { ...process.env, ...__baml_options__.env } : { ...process.env };
+      const __env__: Record<string, string> = Object.fromEntries(
+        Object.entries(__rawEnv__).filter(([_, value]) => value !== undefined) as [string, string][]
+      );
+      return this.runtime.parseLlmResponse(
+        "RouteDiscovery",
+        llmResponse,
+        true,
+        this.ctxManager.cloneContext(),
+        __baml_options__?.tb?.__tb(),
+        __baml_options__?.clientRegistry,
+        __env__,
+      ) as partial_types.DiscoveryTurn
     } catch (error) {
       throw toBamlError(error);
     }

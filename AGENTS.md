@@ -19,6 +19,9 @@ ChatGPT-authenticated Codex CLI session.
 - A candidate is not confirmed until the user explicitly says `YES` or clicks
   the equivalent confirmation action.
 - Discovery asks one question at a time.
+- The Discover UI exposes Game of Aliveness and Game of Judgment as explicit
+  starting methods, plus an adaptive router. Preserve the active method and
+  stage on every turn.
 - Challenge vague or standardized motives, but let the user reject any
   interpretation.
 - Save the accepted wording exactly. Finalization may structure the title,
@@ -45,6 +48,9 @@ ChatGPT-authenticated Codex CLI session.
 ## BAML
 
 - Treat `baml_src/` as the source of truth for prompts and output types.
+- Keep Aliveness and Judgment as separate BAML functions. The adaptive router
+  chooses a method only for the first turn; later turns use that method's
+  dedicated function.
 - After changing BAML, run `npm run baml:generate`.
 - Keep generated `baml_client/` in sync and committed so a fresh clone runs
   after `npm install`.

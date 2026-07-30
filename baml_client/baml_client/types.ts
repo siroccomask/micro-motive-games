@@ -51,6 +51,22 @@ export enum DiscoveryActionKind {
   SAVE_CANDIDATE = "SAVE_CANDIDATE",
 }
 
+export enum DiscoveryMethod {
+  ALIVENESS = "ALIVENESS",
+  JUDGMENT = "JUDGMENT",
+}
+
+export enum DiscoveryStage {
+  RECONSTRUCT_MOMENT = "RECONSTRUCT_MOMENT",
+  IDENTIFY_LIVE_WIRE = "IDENTIFY_LIVE_WIRE",
+  CAPTURE_JUDGMENT = "CAPTURE_JUDGMENT",
+  SEPARATE_FEELING = "SEPARATE_FEELING",
+  IDENTIFY_TRIGGER = "IDENTIFY_TRIGGER",
+  TEST_BOUNDARY = "TEST_BOUNDARY",
+  FIND_PORTABILITY = "FIND_PORTABILITY",
+  FORM_CANDIDATE = "FORM_CANDIDATE",
+}
+
 export enum DiscoveryTurnKind {
   QUESTION = "QUESTION",
   CANDIDATE = "CANDIDATE",
@@ -78,6 +94,12 @@ export interface BreakdownMicroMotiveOutput {
 
 }
 
+export interface DiscoveryContinuationInput {
+  current_stage?: DiscoveryStage | null
+  messages: DiscoveryMessage[]
+
+}
+
 export interface DiscoveryMessage {
   role: string
   content: string
@@ -92,6 +114,8 @@ export interface DiscoverySuggestedAction {
 
 export interface DiscoveryTurn {
   kind: DiscoveryTurnKind
+  method: DiscoveryMethod
+  stage: DiscoveryStage
   reply: string
   candidate?: string | null
   evidence_summary?: string | null

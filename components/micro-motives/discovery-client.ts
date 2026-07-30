@@ -1,5 +1,10 @@
 import type { Evidence, MicroMotive } from "@/libs/motives/types";
 import type {
+  DiscoveryEntry,
+  DiscoveryMethod,
+  DiscoveryStage,
+} from "@/libs/discovery/strategy";
+import type {
   BreakdownCandidate,
   DiscoveryMessage,
   DiscoverySuggestedAction,
@@ -39,17 +44,27 @@ export function userFacingError(
 }
 
 export const discoveryClient = {
-  async continue(messages: DiscoveryMessage[]) {
+  async continue(input: {
+    entry: DiscoveryEntry;
+    method: DiscoveryMethod | null;
+    stage: DiscoveryStage | null;
+    messages: DiscoveryMessage[];
+  }) {
     const response = await fetch("/api/discovery/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        messages: messages.map(({ role, content }) => ({ role, content })),
+        entry: input.entry,
+        method: input.method,
+        stage: input.stage,
+        messages: input.messages.map(({ role, content }) => ({ role, content })),
       }),
     });
     return responseBody<{
       turn: {
         kind: "QUESTION" | "CANDIDATE";
+        method: DiscoveryMethod;
+        stage: DiscoveryStage;
         reply: string;
         candidate?: string | null;
         evidence_summary?: string | null;

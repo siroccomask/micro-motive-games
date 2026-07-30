@@ -33,11 +33,13 @@ export default class TypeBuilder {
 
     BreakdownMicroMotiveOutput: ClassViewer<'BreakdownMicroMotiveOutput', "candidates">;
 
+    DiscoveryContinuationInput: ClassViewer<'DiscoveryContinuationInput', "current_stage" | "messages">;
+
     DiscoveryMessage: ClassViewer<'DiscoveryMessage', "role" | "content">;
 
     DiscoverySuggestedAction: ClassViewer<'DiscoverySuggestedAction', "kind" | "label">;
 
-    DiscoveryTurn: ClassViewer<'DiscoveryTurn', "kind" | "reply" | "candidate" | "evidence_summary" | "suggested_action">;
+    DiscoveryTurn: ClassViewer<'DiscoveryTurn', "kind" | "method" | "stage" | "reply" | "candidate" | "evidence_summary" | "suggested_action">;
 
     FinalizeMicroMotiveInput: ClassViewer<'FinalizeMicroMotiveInput', "accepted_statement" | "messages" | "evidence_summary">;
 
@@ -48,16 +50,20 @@ export default class TypeBuilder {
 
     DiscoveryActionKind: EnumViewer<'DiscoveryActionKind', "SAVE_CANDIDATE">;
 
+    DiscoveryMethod: EnumViewer<'DiscoveryMethod', "ALIVENESS" | "JUDGMENT">;
+
+    DiscoveryStage: EnumViewer<'DiscoveryStage', "RECONSTRUCT_MOMENT" | "IDENTIFY_LIVE_WIRE" | "CAPTURE_JUDGMENT" | "SEPARATE_FEELING" | "IDENTIFY_TRIGGER" | "TEST_BOUNDARY" | "FIND_PORTABILITY" | "FORM_CANDIDATE">;
+
     DiscoveryTurnKind: EnumViewer<'DiscoveryTurnKind', "QUESTION" | "CANDIDATE">;
 
 
     constructor() {
         this.tb = new _TypeBuilder({
           classes: new Set([
-            "BreakdownCandidateOutput","BreakdownMicroMotiveInput","BreakdownMicroMotiveOutput","DiscoveryMessage","DiscoverySuggestedAction","DiscoveryTurn","FinalizeMicroMotiveInput","MicroMotiveEvidence","MicroMotiveOutput",
+            "BreakdownCandidateOutput","BreakdownMicroMotiveInput","BreakdownMicroMotiveOutput","DiscoveryContinuationInput","DiscoveryMessage","DiscoverySuggestedAction","DiscoveryTurn","FinalizeMicroMotiveInput","MicroMotiveEvidence","MicroMotiveOutput",
           ]),
           enums: new Set([
-            "DiscoveryActionKind","DiscoveryTurnKind",
+            "DiscoveryActionKind","DiscoveryMethod","DiscoveryStage","DiscoveryTurnKind",
           ]),
           runtime: DO_NOT_USE_DIRECTLY_UNLESS_YOU_KNOW_WHAT_YOURE_DOING_RUNTIME
         });
@@ -74,6 +80,10 @@ export default class TypeBuilder {
           "candidates",
         ]);
 
+        this.DiscoveryContinuationInput = this.tb.classViewer("DiscoveryContinuationInput", [
+          "current_stage","messages",
+        ]);
+
         this.DiscoveryMessage = this.tb.classViewer("DiscoveryMessage", [
           "role","content",
         ]);
@@ -83,7 +93,7 @@ export default class TypeBuilder {
         ]);
 
         this.DiscoveryTurn = this.tb.classViewer("DiscoveryTurn", [
-          "kind","reply","candidate","evidence_summary","suggested_action",
+          "kind","method","stage","reply","candidate","evidence_summary","suggested_action",
         ]);
 
         this.FinalizeMicroMotiveInput = this.tb.classViewer("FinalizeMicroMotiveInput", [
@@ -101,6 +111,14 @@ export default class TypeBuilder {
 
         this.DiscoveryActionKind = this.tb.enumViewer("DiscoveryActionKind", [
           "SAVE_CANDIDATE",
+        ]);
+
+        this.DiscoveryMethod = this.tb.enumViewer("DiscoveryMethod", [
+          "ALIVENESS","JUDGMENT",
+        ]);
+
+        this.DiscoveryStage = this.tb.enumViewer("DiscoveryStage", [
+          "RECONSTRUCT_MOMENT","IDENTIFY_LIVE_WIRE","CAPTURE_JUDGMENT","SEPARATE_FEELING","IDENTIFY_TRIGGER","TEST_BOUNDARY","FIND_PORTABILITY","FORM_CANDIDATE",
         ]);
 
         this.DiscoveryTurnKind = this.tb.enumViewer("DiscoveryTurnKind", [

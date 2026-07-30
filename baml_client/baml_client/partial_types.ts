@@ -20,7 +20,7 @@ $ pnpm add @boundaryml/baml
 
 import type { Image, Audio, Pdf, Video } from "@boundaryml/baml"
 import type { Checked, Check } from "./types"
-import type {  BreakdownCandidateOutput,  BreakdownMicroMotiveInput,  BreakdownMicroMotiveOutput,  DiscoveryActionKind,  DiscoveryMessage,  DiscoverySuggestedAction,  DiscoveryTurn,  DiscoveryTurnKind,  FinalizeMicroMotiveInput,  MicroMotiveEvidence,  MicroMotiveOutput } from "./types"
+import type {  BreakdownCandidateOutput,  BreakdownMicroMotiveInput,  BreakdownMicroMotiveOutput,  DiscoveryActionKind,  DiscoveryContinuationInput,  DiscoveryMessage,  DiscoveryMethod,  DiscoveryStage,  DiscoverySuggestedAction,  DiscoveryTurn,  DiscoveryTurnKind,  FinalizeMicroMotiveInput,  MicroMotiveEvidence,  MicroMotiveOutput } from "./types"
 import type * as types from "./types"
 
 /******************************************************************************
@@ -52,6 +52,10 @@ export namespace partial_types {
     export interface BreakdownMicroMotiveOutput {
       candidates: BreakdownCandidateOutput[]
     }
+    export interface DiscoveryContinuationInput {
+      current_stage?: types.DiscoveryStage | null
+      messages: DiscoveryMessage[]
+    }
     export interface DiscoveryMessage {
       role?: string | null
       content?: string | null
@@ -62,6 +66,8 @@ export namespace partial_types {
     }
     export interface DiscoveryTurn {
       kind?: types.DiscoveryTurnKind | null
+      method?: types.DiscoveryMethod | null
+      stage?: types.DiscoveryStage | null
       reply?: string | null
       candidate?: string | null
       evidence_summary?: string | null

@@ -6,6 +6,12 @@ import {
   createJsonExport,
   createMarkdownExport,
 } from "@/libs/motives/export";
+import {
+  startDiscovery,
+  type DiscoveryEntry,
+  type DiscoveryMethod,
+  type DiscoveryStage,
+} from "@/libs/discovery/strategy";
 import { localDateStamp } from "@/libs/motives/date";
 import type { MicroMotive } from "@/libs/motives/types";
 import { discoveryClient, userFacingError } from "./discovery-client";
@@ -22,13 +28,6 @@ import type {
 } from "./workspace-types";
 
 const MOTIVES_STORAGE_KEY = "motive.micro-motives.v1";
-
-const openingDiscoveryMessage: DiscoveryMessage = {
-  id: "opening",
-  role: "guide",
-  content:
-    "Your honest reactions are safe evidence here—even when they seem strange, selfish, trivial, or contradictory. Begin with one real moment: when did you feel unusually alive, or notice a strong reaction to someone? What happened?",
-};
 
 function latestLabel(motives: MicroMotive[]) {
   const latestDate = motives
@@ -66,9 +65,15 @@ export default function MotiveWorkspace() {
   const [isMotiveStorageReady, setIsMotiveStorageReady] = useState(false);
   const [pendingMotiveId, setPendingMotiveId] = useState<string | null>(null);
 
+  const [discoveryEntry, setDiscoveryEntry] =
+    useState<DiscoveryEntry | null>(null);
+  const [discoveryMethod, setDiscoveryMethod] =
+    useState<DiscoveryMethod | null>(null);
+  const [discoveryStage, setDiscoveryStage] =
+    useState<DiscoveryStage | null>(null);
   const [discoveryMessages, setDiscoveryMessages] = useState<
     DiscoveryMessage[]
-  >([openingDiscoveryMessage]);
+  >([]);
   const [discoveryReply, setDiscoveryReply] = useState("");
   const [discoveryCandidate, setDiscoveryCandidate] = useState<string | null>(
     null,
@@ -224,7 +229,14 @@ export default function MotiveWorkspace() {
   async function sendDiscoveryReply(event: FormEvent) {
     event.preventDefault();
     const reply = discoveryReply.trim();
-    if (!reply || isDiscoveryBusy || !isMotiveStorageReady) return;
+    if (
+      !reply ||
+      !discoveryEntry ||
+      isDiscoveryBusy ||
+      !isMotiveStorageReady
+    ) {
+      return;
+    }
 
     if (discoveryCandidate && reply.toUpperCase() === "YES") {
       const confirmationMessage: DiscoveryMessage = {
@@ -252,7 +264,12 @@ export default function MotiveWorkspace() {
     setIsDiscoveryPending(true);
 
     try {
-      const data = await discoveryClient.continue(nextMessages);
+      const data = await discoveryClient.continue({
+        entry: discoveryEntry,
+        method: discoveryMethod,
+        stage: discoveryStage,
+        messages: nextMessages,
+      });
       setDiscoveryMessages((current) => [
         ...current,
         {
@@ -268,6 +285,8 @@ export default function MotiveWorkspace() {
           ? data.turn.candidate ?? null
           : null,
       );
+      setDiscoveryMethod(data.turn.method);
+      setDiscoveryStage(data.turn.stage);
       setDiscoveryEvidenceSummary(data.turn.evidence_summary ?? null);
     } catch (error) {
       setDiscoveryError(
@@ -279,13 +298,39 @@ export default function MotiveWorkspace() {
   }
 
   function startNewDiscovery() {
-    setDiscoveryMessages([openingDiscoveryMessage]);
+    setDiscoveryEntry(null);
+    setDiscoveryMethod(null);
+    setDiscoveryStage(null);
+    setDiscoveryMessages([]);
     setDiscoveryReply("");
     setDiscoveryCandidate(null);
     setDiscoveryEvidenceSummary(null);
     setDiscoveryError(null);
     setIsDiscoveryPending(false);
     setIsFinalizing(false);
+  }
+
+  function beginNewMotive() {
+    startNewDiscovery();
+    setActiveView("discover");
+  }
+
+  function chooseDiscoveryEntry(entry: DiscoveryEntry) {
+    const session = startDiscovery(entry);
+    setDiscoveryEntry(session.entry);
+    setDiscoveryMethod(session.method);
+    setDiscoveryStage(session.stage);
+    setDiscoveryMessages([
+      {
+        id: "opening",
+        role: "guide",
+        content: session.opening,
+      },
+    ]);
+    setDiscoveryReply("");
+    setDiscoveryCandidate(null);
+    setDiscoveryEvidenceSummary(null);
+    setDiscoveryError(null);
   }
 
   function rejectDiscoveryCandidate() {
@@ -566,6 +611,7 @@ export default function MotiveWorkspace() {
         {activeView === "discover" ? (
           <DiscoveryWorkspace
             actions={{
+              chooseEntry: chooseDiscoveryEntry,
               setReply: setDiscoveryReply,
               submit: sendDiscoveryReply,
               startNew: startNewDiscovery,
@@ -574,6 +620,9 @@ export default function MotiveWorkspace() {
                 void confirmDiscoveryMotive(statement),
             }}
             model={{
+              entry: discoveryEntry,
+              method: discoveryMethod,
+              stage: discoveryStage,
               messages: discoveryMessages,
               reply: discoveryReply,
               candidate: discoveryCandidate,
@@ -594,7 +643,7 @@ export default function MotiveWorkspace() {
           <MotiveLibrary
             actions={{
               select: selectMotive,
-              discover: () => changeView("discover"),
+              discover: beginNewMotive,
               archiveOrRestore: (motive) =>
                 void archiveOrRestoreMotive(motive),
               startBreakdown: (motive) => void startBreakdown(motive),
