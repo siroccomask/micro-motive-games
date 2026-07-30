@@ -14,6 +14,33 @@ Use it to:
 
 The model makes predictions. You decide what is true.
 
+## How it works
+
+### 1. Find micro-motives with Discover
+
+Begin with a moment that came alive, a strong reaction to someone, or whatever
+experience feels most vivid. The guided conversation asks one question at a
+time until it can predict a specific micro-motive for you to judge.
+
+![Choose a guided micro-motive discovery method](docs/screenshots/discover.jpg)
+
+### 2. Collect, sharpen, and lock them in
+
+Nothing joins your collection until you confirm it. Each locked micro-motive
+keeps the experience that revealed it, and broad motives can be broken into
+smaller predictions for you to test individually.
+
+![Review locked micro-motives and break broad ones down](docs/screenshots/collect-and-shape.jpg)
+
+### 3. Carry your individuality into your other AI tools
+
+Export your collection as an Obsidian-ready note or structured JSON. Add it to
+the context used by your personal AI so its suggestions can reflect what
+actually brings you alive—whether you are choosing work, planning a schedule,
+developing content, or deciding what to make next.
+
+![Export confirmed micro-motives for an Obsidian vault or another AI tool](docs/screenshots/export.jpg)
+
 ## Start with Codex
 
 You need the [Codex app](https://openai.com/codex/) and a ChatGPT account with
